@@ -16,6 +16,6 @@ Queste sono le pagine moodle a cui fare riferimento per gli esercizi (ed eventua
 
 > **Avviso**: Se avete dubbi o incertezze sulla soluzione di un determinato esercizio contattate direttamente il vostro docente tramite mail.
 
-> _**Nota**_: Se sono presenti errori nella stesura del codice potete farlo presente nella sezione apposita ([problemi](https://github.com/cipst/labprog2/issues)). Grazie per la collaborazione.
+> _**Nota**_: Se sono presenti errori nella stesura del codice potete farlo presente nella sezione apposita ([problemi](https://github.com/cipst/lab_prog2/issues)). Grazie per la collaborazione.
 ### Crediti
 - [Stefano](https://github.com/cipst)
