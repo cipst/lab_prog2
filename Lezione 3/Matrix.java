@@ -64,7 +64,19 @@ public class Matrix {
         return newM;
     }
 
-   
+    public Matrix pow(int n) {
+        if(n == 0){
+            Matrix m = new Matrix(this.m, this.n);
+            for(int i=0; i<this.m; ++i)
+                for(int j=0; j<this.n; ++j)
+                    m.set((i==j)?1:0, i, j);
+            return m;
+        }else if (n > 1) {
+            return this.mul(this.pow(n - 1));
+        } else {
+            return this;
+        }
+    }
 
     public static void main(String[] args) {
         Matrix m = new Matrix(3, 3);
@@ -89,6 +101,29 @@ public class Matrix {
         for (int i = 0; i < m2.rows(); ++i) {
             for (int j = 0; j < m2.columns(); ++j) {
                 System.out.print(mul.get(i, j) + " ");
+            }
+            System.out.println();
+        }
+
+
+        System.out.println("############");
+        Matrix m3 = new Matrix(5, 5);
+        m3.set(1, 0, 0);
+        m3.set(2, 0, 1);
+        m3.set(-1, 1, 0);
+        m3.set(3, 1, 1);
+        for (int i = 0; i < m3.rows(); ++i) {
+            for (int j = 0; j < m3.columns(); ++j) {
+                System.out.print(m3.get(i, j) + " ");
+            }
+            System.out.println();
+        }
+        
+        System.out.println("############");
+        Matrix pow = m3.pow(0);
+        for (int i = 0; i < m3.rows(); ++i) {
+            for (int j = 0; j < m3.columns(); ++j) {
+                System.out.print(pow.get(i, j) + " ");
             }
             System.out.println();
         }
