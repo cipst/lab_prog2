@@ -65,17 +65,38 @@ public class Matrix {
     }
 
     public Matrix pow(int n) {
-        if(n == 0){
+        if (n == 0) {
             Matrix m = new Matrix(this.m, this.n);
-            for(int i=0; i<this.m; ++i)
-                for(int j=0; j<this.n; ++j)
-                    m.set((i==j)?1:0, i, j);
+            for (int i = 0; i < this.m; ++i)
+                for (int j = 0; j < this.n; ++j)
+                    m.set((i == j) ? 1 : 0, i, j);
             return m;
-        }else if (n > 1) {
+        } else if (n > 1) {
             return this.mul(this.pow(n - 1));
         } else {
             return this;
         }
+    }
+
+    public static int mistero(int n) {
+        Matrix m = new Matrix(2, 2);
+        m.set(1, 0, 0);
+        m.set(1, 0, 1);
+        m.set(1, 1, 0);
+        m.set(0, 1, 1);
+        Matrix newM = m.pow(n);
+        return newM.get(0, 0);
+    }
+
+    public String toString() {
+        String s = "";
+        for (int i = 0; i < this.m; ++i) {
+            for (int j = 0; j < this.n; ++j) {
+                s += this.get(i, j) + " ";
+            }
+            s += "\n";
+        }
+        return s;
     }
 
     public static void main(String[] args) {
@@ -98,34 +119,22 @@ public class Matrix {
         }
         System.out.println("############");
         Matrix mul = m.mul(m2);
-        for (int i = 0; i < m2.rows(); ++i) {
-            for (int j = 0; j < m2.columns(); ++j) {
-                System.out.print(mul.get(i, j) + " ");
-            }
-            System.out.println();
-        }
-
+        System.out.println(mul);
 
         System.out.println("############");
-        Matrix m3 = new Matrix(5, 5);
+        Matrix m3 = new Matrix(2, 2);
         m3.set(1, 0, 0);
-        m3.set(2, 0, 1);
-        m3.set(-1, 1, 0);
-        m3.set(3, 1, 1);
-        for (int i = 0; i < m3.rows(); ++i) {
-            for (int j = 0; j < m3.columns(); ++j) {
-                System.out.print(m3.get(i, j) + " ");
-            }
-            System.out.println();
-        }
-        
+        m3.set(1, 0, 1);
+        m3.set(1, 1, 0);
+        m3.set(0, 1, 1);
+        System.out.println(m3);
+
         System.out.println("############");
-        Matrix pow = m3.pow(0);
-        for (int i = 0; i < m3.rows(); ++i) {
-            for (int j = 0; j < m3.columns(); ++j) {
-                System.out.print(pow.get(i, j) + " ");
-            }
-            System.out.println();
-        }
+        Matrix pow = m3.pow(3);
+        System.out.println(pow);
+
+        System.out.println("############");
+
+        System.out.println("mistero(3)= " + mistero(3));
     }
 }
