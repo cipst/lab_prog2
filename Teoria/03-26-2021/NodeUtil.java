@@ -21,10 +21,21 @@ Per i metodi 1-4 daremo anche una soluzione ricorsiva. Per i metodi 5-7 non indi
 
 public class NodeUtil{
 
+    //0
+    public static void scriviOutput(Node p){
+        
+    }
+
+    //1
     public static int length(Node p){
         int l;
-        for(l=0; p.getNode() != null; ++i)
+        for(l=0; p.getNode() != null; ++l)
             p = p.getNode();
         return l;
+    }
+
+    //1 - rec
+    public static int length_rec(Node p){
+        
     }
 }
