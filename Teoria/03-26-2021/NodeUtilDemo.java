@@ -17,6 +17,8 @@ public class NodeUtilDemo {
         System.out.println("---------------------");
         System.out.println("1. length(p) = " + NodeUtil.length(p));
         System.out.println("1. length_rec(p) = " + NodeUtil.length_rec(p));
+        System.out.println("1. length(q) = " + NodeUtil.length(q));
+        System.out.println("1. length_rec(q) = " + NodeUtil.length_rec(q));
         System.out.println("---------------------");
       /*  System.out.println("2. sum(p) = " + NodeUtil.sum(p));
         System.out.println("2. sum_rec(p) = " + NodeUtil.sum_rec(p));

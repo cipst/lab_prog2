@@ -39,6 +39,9 @@ public class NodeUtil {
 
     // 1 - rec
     public static int length_rec(Node p) {
-        return -1;
+        if(p!=null)
+            return 1+ length_rec(p.getNext());
+        else
+            return 0;
     }
 }
