@@ -83,4 +83,23 @@ public class NodeUtil {
             return -1;
         }
     }
+
+    // 4
+    public static boolean member(Node p, int x) {
+        while (p != null) {
+            if (p.getElem() == x)
+                return true;
+            p = p.getNext();
+        }
+        return false;
+    }
+
+    // 4 - rec
+    public static boolean member_rec(Node p, int x){
+        if(p!=null){
+            return (p.getElem() == x)?true:member_rec(p.getNext(), x);
+        }else{
+            return false;
+        }
+    }
 }
