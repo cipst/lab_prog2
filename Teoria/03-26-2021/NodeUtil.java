@@ -36,6 +36,6 @@ public class NodeUtil{
 
     //1 - rec
     public static int length_rec(Node p){
-        
+        return -1;
     }
 }

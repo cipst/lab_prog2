@@ -18,7 +18,7 @@ public class NodeUtilDemo {
         System.out.println("1. length(p) = " + NodeUtil.length(p));
         System.out.println("1. length_rec(p) = " + NodeUtil.length_rec(p));
         System.out.println("---------------------");
-        System.out.println("2. sum(p) = " + NodeUtil.sum(p));
+      /*  System.out.println("2. sum(p) = " + NodeUtil.sum(p));
         System.out.println("2. sum_rec(p) = " + NodeUtil.sum_rec(p));
         System.out.println("---------------------");
         System.out.println("3. max(p) = " + NodeUtil.max(p));
@@ -38,6 +38,6 @@ public class NodeUtilDemo {
         System.out.println("7. equals(p,q) = " + NodeUtil.equals(p, q));
         System.out.println("7. equals(p,p) = " + NodeUtil.equals(p, p));
         System.out.println("7. equals(q,q) = " + NodeUtil.equals(q, q));
-        System.out.println("7. equals(q,p) = " + NodeUtil.equals(q, p));
+        System.out.println("7. equals(q,p) = " + NodeUtil.equals(q, p));*/
     }
 }
