@@ -115,11 +115,27 @@ public class NodeUtil {
 
     // 6
     public static boolean sorted(Node p) {
-        if(p == null) return false;
-        while (p.getNext() != null){
-            if(p.getNext().getElem() >= p.getElem())
+        if (p == null)
+            return false;
+        while (p.getNext() != null) {
+            if (p.getNext().getElem() >= p.getElem())
                 return false;
             p = p.getNext();
+        }
+        return true;
+    }
+
+    // 7
+    public static boolean equals(Node p, Node q) {
+        if (p == null && q == null)
+            return true;
+        if(length(p) > length(q) || length(p) < length(q))
+            return false;
+        while(p!=null){
+            if(p.getElem() != q.getElem())
+                return false;
+            p = p.getNext();
+            q = q.getNext();
         }
         return true;
     }
