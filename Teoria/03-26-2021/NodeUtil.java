@@ -19,23 +19,26 @@
 Per i metodi 1-4 daremo anche una soluzione ricorsiva. Per i metodi 5-7 non indichiamo suggerimenti. 
 */
 
-public class NodeUtil{
+public class NodeUtil {
 
-    //0
-    public static void scriviOutput(Node p){
-        
+    // 0
+    public static void scriviOutput(Node p) {
+        while (p != null) {
+            System.out.println(p.getElem());
+            p = p.getNode();
+        }
     }
 
-    //1
-    public static int length(Node p){
+    // 1
+    public static int length(Node p) {
         int l;
-        for(l=0; p.getNode() != null; ++l)
+        for (l = 0; p.getNode() != null; ++l)
             p = p.getNode();
         return l;
     }
 
-    //1 - rec
-    public static int length_rec(Node p){
+    // 1 - rec
+    public static int length_rec(Node p) {
         return -1;
     }
 }
