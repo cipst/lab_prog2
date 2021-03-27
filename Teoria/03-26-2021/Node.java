@@ -10,14 +10,14 @@ public class Node {
     public int getElem() {
         return this.elem;
     }
-    public Node getNode(){
+    public Node getNext(){
         return this.next;
     }
 
     public void setElem(int elem){
         this.elem = elem;
     }
-    public void setNode(Node next){
+    public void setNext(Node next){
         this.next = next;
     }
 }

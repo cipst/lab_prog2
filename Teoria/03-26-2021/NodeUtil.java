@@ -25,15 +25,15 @@ public class NodeUtil {
     public static void scriviOutput(Node p) {
         while (p != null) {
             System.out.println(p.getElem());
-            p = p.getNode();
+            p = p.getNext();
         }
     }
 
     // 1
     public static int length(Node p) {
         int l;
-        for (l = 0; p.getNode() != null; ++l)
-            p = p.getNode();
+        for (l = 0; p != null; ++l)
+            p = p.getNext();
         return l;
     }
 
