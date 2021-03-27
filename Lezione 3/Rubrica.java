@@ -1,6 +1,3 @@
-
-import java.util.Arrays;
-
 // Rubrica.java
 public class Rubrica {
     /**
