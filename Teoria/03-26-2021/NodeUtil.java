@@ -102,4 +102,14 @@ public class NodeUtil {
             return false;
         }
     }
+
+    //5
+    public static String toString(Node p){
+        String s="";
+        while(p!=null){
+            s+= p.getElem() + " ";
+            p = p.getNext();
+        }
+        return s;
+    }
 }

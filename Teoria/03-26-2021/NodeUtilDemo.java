@@ -32,10 +32,10 @@ public class NodeUtilDemo {
         System.out.println("4. member(p,50) = " + NodeUtil.member(p, 50));
         System.out.println("4. member_rec(p,30) = " + NodeUtil.member_rec(p, 30));
         System.out.println("4. member_rec(p,50) = " + NodeUtil.member_rec(p, 50));
-        /*System.out.println("---------------------");
+        System.out.println("---------------------");
         System.out.println("5. toString(q) = " + NodeUtil.toString(q));
         System.out.println("5. toString(p) = " + NodeUtil.toString(p));
-        System.out.println("---------------------");
+        /*System.out.println("---------------------");
         System.out.println("6. sorted(q) = " + NodeUtil.sorted(q));
         System.out.println("6. sorted(p) = " + NodeUtil.sorted(p));
         System.out.println("---------------------");
