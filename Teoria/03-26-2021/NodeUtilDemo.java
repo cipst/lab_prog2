@@ -35,10 +35,10 @@ public class NodeUtilDemo {
         System.out.println("---------------------");
         System.out.println("5. toString(q) = " + NodeUtil.toString(q));
         System.out.println("5. toString(p) = " + NodeUtil.toString(p));
-        /*System.out.println("---------------------");
+        System.out.println("---------------------");
         System.out.println("6. sorted(q) = " + NodeUtil.sorted(q));
         System.out.println("6. sorted(p) = " + NodeUtil.sorted(p));
-        System.out.println("---------------------");
+        /*System.out.println("---------------------");
         System.out.println("7. equals(p,q) = " + NodeUtil.equals(p, q));
         System.out.println("7. equals(p,p) = " + NodeUtil.equals(p, p));
         System.out.println("7. equals(q,q) = " + NodeUtil.equals(q, q));

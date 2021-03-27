@@ -95,21 +95,32 @@ public class NodeUtil {
     }
 
     // 4 - rec
-    public static boolean member_rec(Node p, int x){
-        if(p!=null){
-            return (p.getElem() == x)?true:member_rec(p.getNext(), x);
-        }else{
+    public static boolean member_rec(Node p, int x) {
+        if (p != null) {
+            return (p.getElem() == x) ? true : member_rec(p.getNext(), x);
+        } else {
             return false;
         }
     }
 
-    //5
-    public static String toString(Node p){
-        String s="";
-        while(p!=null){
-            s+= p.getElem() + " ";
+    // 5
+    public static String toString(Node p) {
+        String s = "";
+        while (p != null) {
+            s += p.getElem() + " ";
             p = p.getNext();
         }
         return s;
+    }
+
+    // 6
+    public static boolean sorted(Node p) {
+        if(p == null) return false;
+        while (p.getNext() != null){
+            if(p.getNext().getElem() >= p.getElem())
+                return false;
+            p = p.getNext();
+        }
+        return true;
     }
 }
