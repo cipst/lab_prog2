@@ -56,10 +56,31 @@ public class NodeUtil {
     }
 
     // 2 - rec
-    public static int sum_rec(Node p){
-        if(p!=null)
+    public static int sum_rec(Node p) {
+        if (p != null)
             return p.getElem() + sum_rec(p.getNext());
         else
             return 0;
+    }
+
+    // 3
+    public static int max(Node p) {
+        int m = -1;
+        while (p != null) {
+            if (m < p.getElem())
+                m = p.getElem();
+            p = p.getNext();
+        }
+        return m;
+    }
+
+    // 3 - rec
+    public static int max_rec(Node p) {
+        if (p != null) {
+            int tmp = max_rec(p.getNext());
+            return (tmp < p.getElem()) ? p.getElem() : tmp;
+        } else {
+            return -1;
+        }
     }
 }
