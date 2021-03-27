@@ -38,10 +38,10 @@ public class NodeUtilDemo {
         System.out.println("---------------------");
         System.out.println("6. sorted(q) = " + NodeUtil.sorted(q));
         System.out.println("6. sorted(p) = " + NodeUtil.sorted(p));
-        /*System.out.println("---------------------");
-        System.out.println("7. equals(p,q) = " + NodeUtil.equals(p, q));
+        System.out.println("---------------------");
+        System.out.println("7. equals(p,q) = " + NodeUtil.equals(null, q));
         System.out.println("7. equals(p,p) = " + NodeUtil.equals(p, p));
         System.out.println("7. equals(q,q) = " + NodeUtil.equals(q, q));
-        System.out.println("7. equals(q,p) = " + NodeUtil.equals(q, p));*/
+        System.out.println("7. equals(q,p) = " + NodeUtil.equals(q, p));
     }
 }

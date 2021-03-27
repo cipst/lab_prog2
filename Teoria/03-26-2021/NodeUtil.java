@@ -127,12 +127,10 @@ public class NodeUtil {
 
     // 7
     public static boolean equals(Node p, Node q) {
-        if (p == null && q == null)
-            return true;
-        if(length(p) > length(q) || length(p) < length(q))
+        if (length(p) > length(q) || length(p) < length(q))
             return false;
-        while(p!=null){
-            if(p.getElem() != q.getElem())
+        while (p != null && q != null) {
+            if (p.getElem() != q.getElem())
                 return false;
             p = p.getNext();
             q = q.getNext();
