@@ -39,8 +39,26 @@ public class NodeUtil {
 
     // 1 - rec
     public static int length_rec(Node p) {
+        if (p != null)
+            return 1 + length_rec(p.getNext());
+        else
+            return 0;
+    }
+
+    // 2
+    public static int sum(Node p) {
+        int s = 0;
+        while (p != null) {
+            s += p.getElem();
+            p = p.getNext();
+        }
+        return s;
+    }
+
+    // 2 - rec
+    public static int sum_rec(Node p){
         if(p!=null)
-            return 1+ length_rec(p.getNext());
+            return p.getElem() + sum_rec(p.getNext());
         else
             return 0;
     }

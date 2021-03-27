@@ -20,10 +20,12 @@ public class NodeUtilDemo {
         System.out.println("1. length(q) = " + NodeUtil.length(q));
         System.out.println("1. length_rec(q) = " + NodeUtil.length_rec(q));
         System.out.println("---------------------");
-      /*  System.out.println("2. sum(p) = " + NodeUtil.sum(p));
+        System.out.println("2. sum(p) = " + NodeUtil.sum(p));
         System.out.println("2. sum_rec(p) = " + NodeUtil.sum_rec(p));
+        System.out.println("2. sum(q) = " + NodeUtil.sum(q));
+        System.out.println("2. sum_rec(q) = " + NodeUtil.sum_rec(q));
         System.out.println("---------------------");
-        System.out.println("3. max(p) = " + NodeUtil.max(p));
+        /*System.out.println("3. max(p) = " + NodeUtil.max(p));
         System.out.println("3. maxr_rec(p) = " + NodeUtil.max_rec(p));
         System.out.println("---------------------");
         System.out.println("4. member(p,30) = " + NodeUtil.member(p, 30));
