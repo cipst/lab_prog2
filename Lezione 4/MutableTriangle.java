@@ -26,4 +26,10 @@ public class MutableTriangle {
         this.b.moveTo(dx,dy);
         this.c.moveTo(dx,dy);
     }//translate
+
+    public void rotate(double angle){
+        this.a.rotate(angle);
+        this.b.rotate(angle);
+        this.c.rotate(angle);
+    }//rotate
 }// class

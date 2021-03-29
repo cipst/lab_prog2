@@ -31,7 +31,7 @@ class MutablePoint {
      * "," + newPoint.getY() + ")"); return newPoint; }
      */
 
-    public void rotate(int angle) {
+    public void rotate(double angle) {
         System.out.println("Coordinate prima della rotazione: (" + this.x + "," + this.y + ")");
         this.x = x * Math.cos(angle) - y * Math.sin(angle);
         this.y = x * Math.sin(angle) + y * Math.cos(angle);
@@ -39,7 +39,7 @@ class MutablePoint {
     }
 
     /*
-     * public Point rotateImm(int angle) {
+     * public Point rotateImm(double angle) {
      * System.out.println("Coordinate prima della rotazione: (" + this.x + "," +
      * this.y + ")"); Point newPoint = new Point(x * Math.cos(angle) - y *
      * Math.sin(angle), x * Math.sin(angle) + y * Math.cos(angle));
