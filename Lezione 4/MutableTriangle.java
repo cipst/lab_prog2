@@ -36,4 +36,15 @@ public class MutableTriangle {
     public double perimeter() {
         return this.a.distance(b) + this.b.distance(c) + this.a.distance(c);
     }//perimeter
+
+    public double area(){
+        double AB = this.a.distance(b);
+        double BC = this.b.distance(c);
+        double AC = this.a.distance(c);
+        
+        //Formula di Erone
+        double s = (AB+BC+AC)/2;
+
+        return Math.sqrt(s*(s-AB)*(s-BC)*(s-AC));
+    }//area
 }// class
