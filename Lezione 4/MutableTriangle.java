@@ -21,4 +21,9 @@ public class MutableTriangle {
         return this.c;
     }// get C
 
+    public void translate(double dx, double dy){
+        this.a.moveTo(dx,dy);
+        this.b.moveTo(dx,dy);
+        this.c.moveTo(dx,dy);
+    }//translate
 }// class
