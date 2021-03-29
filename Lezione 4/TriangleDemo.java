@@ -4,7 +4,7 @@ public class TriangleDemo {
         System.out.println("Area= " + String.format("%.2f", t.area()));
         System.out.println("Perimeter= " + String.format("%.2f", t.perimeter()));
 
-        ImmutableTriangle tImm = new MutableTriangle(new MutablePoint(0,0), new MutablePoint(29,14), new MutablePoint(9,22));
+        ImmutableTriangle tImm = new ImmutableTriangle(new ImmutableTriangle(0,0), new ImmutableTriangle(29,14), new ImmutableTriangle(9,22));
         System.out.println("Area= " + String.format("%.2f", tImm.area()));
         System.out.println("Perimeter= " + String.format("%.2f", tImm.perimeter()));
     }
