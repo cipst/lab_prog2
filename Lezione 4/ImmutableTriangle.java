@@ -26,7 +26,7 @@ public class ImmutableTriangle {
     }// translate
 
     public ImmutableTriangle rotate(double angle) {
-        return new ImmutableTriangle(this.a.rotate(dx,dy), this.b.rotate(dx, dy), this.c.rotate(dx, dy));
+        return new ImmutableTriangle(this.a.rotate(angle), this.b.rotate(angle), this.c.rotate(angle));
     }// rotate
 
     public double perimeter() {
