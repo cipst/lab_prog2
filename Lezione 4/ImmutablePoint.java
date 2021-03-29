@@ -31,7 +31,7 @@ class ImmutablePoint {
         return newPoint;
     }
 
-    public double distance(MutablePoint p) {
+    public double distance(ImmutablePoint p) {
         return Math.sqrt(Math.pow((this.x - p.getX()), 2) + Math.pow((this.y - p.getY()), 2));
     }
 }
