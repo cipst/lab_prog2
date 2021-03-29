@@ -21,15 +21,19 @@ public class MutableTriangle {
         return this.c;
     }// get C
 
-    public void translate(double dx, double dy){
-        this.a.moveTo(dx,dy);
-        this.b.moveTo(dx,dy);
-        this.c.moveTo(dx,dy);
-    }//translate
+    public void translate(double dx, double dy) {
+        this.a.moveTo(dx, dy);
+        this.b.moveTo(dx, dy);
+        this.c.moveTo(dx, dy);
+    }// translate
 
-    public void rotate(double angle){
+    public void rotate(double angle) {
         this.a.rotate(angle);
         this.b.rotate(angle);
         this.c.rotate(angle);
-    }//rotate
+    }// rotate
+
+    public double perimeter() {
+        return this.a.distance(b) + this.b.distance(c) + this.a.distance(c);
+    }//perimeter
 }// class

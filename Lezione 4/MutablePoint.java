@@ -47,7 +47,7 @@ class MutablePoint {
      * + newPoint.getY() + ")"); return newPoint; }
      */
 
-    public double distance(Point p) {
+    public double distance(MutablePoint p) {
         return Math.sqrt(Math.pow((this.x - p.getX()), 2) + Math.pow((this.y - p.getY()), 2));
     }
 }
