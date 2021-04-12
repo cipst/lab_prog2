@@ -1,14 +1,14 @@
 public class PilaDinamicaTest {
 
     public static void main(String[] args) {
-        PilaDinamica p = new PilaDinamica();
-        p.push(13);
-        p.push(20);
-        p.push(3);
-        p.push(56);
+        PilaDinamica pDinamica = new PilaDinamica();
+        pDinamica.push(13);
+        pDinamica.push(20);
+        pDinamica.push(3);
+        pDinamica.push(56);
 
         /* ESERCIZIO 1 */
-        int[] a = p.toArray();
+        int[] a = pDinamica.toArray();
         System.out.println("length: " + a.length);
         for (int i = 0; i < a.length; ++i)
             System.out.print(a[i] + " | ");
@@ -26,7 +26,23 @@ public class PilaDinamicaTest {
         tmp = new Node(2, tmp);
         tmp = new Node(3, tmp);
         System.out.println("# occurences '1' : " + occurences(tmp, 1));
+        System.out.println();
 
+        Node p = new Node(1, null);
+        p = new Node(2, p);
+        p = new Node(3, p);
+        System.out.println("p: " + p);
+        Node q = new Node(0, null);
+        q = new Node(1, q);
+        q = new Node(2, q);
+        q = new Node(2, q);
+        q = new Node(0, q);
+        q = new Node(3, q);
+        q = new Node(4, q);
+        System.out.println("q: " + q);
+        System.out.println("p is included in q: " + included(p, q));
+        System.out.println("q is included in p: " + included(q, p));
+        System.out.println();
     }// main
 
     public static Node fromTo(int m, int n) {
@@ -50,6 +66,21 @@ public class PilaDinamicaTest {
                 count += (tmp.getElem() == x) ? 1 : 0;
             return count;
         }
+    }
+
+    public static boolean included(Node p, Node q) {
+        if (p == null && q != null || p != null && q == null)
+            return false;
+
+        while (p != null && q != null) {
+            if (p.getElem() == q.getElem()) {
+                p = p.getNext();
+            }
+            q = q.getNext();
+        }
+
+        //se p == null --> vuol dire che l'ho visitato tutto --> quindi p è incluso in q
+        return p == null;
     }
 
 }// class
