@@ -37,32 +37,18 @@ public class PilaDinamica {
 
     public int[] toArray() {
         assert !vuota() : "non si puo' chiamare il metodo toArray() se la pila e' vuota. ";
-        int[] a = new int[this.size()];
-        int i = 0;
-        for (Node tmp = top.getElem(); tmp != null; tmp = tmp.getNext()) {
-            a[i++] = tmp.getElem();
+        int length = this.size();
+        int[] a = new int[length];
+        int i = length-1;
+        for (Node tmp = top; tmp != null; tmp = tmp.getNext()) {
+            a[i--] = tmp.getElem();
         }
         return a;
     }
 
-    public int[] toArray(Node tmp, int size){
-        if(tmp == null){
-            return new int[size];
-        }else{
-            int[] a = toArray(tmp.getNext(), size+1);
-            a[size-1] = tmp.getElem();
-            return a;
-        }
-    }
-
-    public int[] toArrayWrap(){
-        assert !vuoto() : "non si puo' chiamare toArrayWrap() se la pila e' vuota. ";
-        return toArray(top, 0);
-    }
-
     public int size() {
         int size = 0;
-        for (Node tmp = top.getElem(); tmp != null; tmp = tmp.getNext()) {
+        for (Node tmp = top; tmp != null; tmp = tmp.getNext()) {
             size++;
         }
         return size;
