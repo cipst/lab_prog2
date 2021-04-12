@@ -43,6 +43,19 @@ public class PilaDinamicaTest {
         System.out.println("p is included in q: " + included(p, q));
         System.out.println("q is included in p: " + included(q, p));
         System.out.println();
+
+        Node z = reverse(p);
+        System.out.println(z);
+        System.out.println();
+
+        Node x = new Node(1, null);
+        x = new Node(2, x);
+        x = new Node(3, x);
+        Node y = new Node(4, null);
+        y = new Node(5, y);
+        y = new Node(6, y);
+        System.out.println(zipSum(x, y));
+
     }// main
 
     public static Node fromTo(int m, int n) {
@@ -79,8 +92,36 @@ public class PilaDinamicaTest {
             q = q.getNext();
         }
 
-        //se p == null --> vuol dire che l'ho visitato tutto --> quindi p è incluso in q
+        // se p == null --> vuol dire che l'ho visitato tutto --> quindi p è incluso in
+        // q
         return p == null;
     }
 
+    public static Node reverse(Node p) {
+        // imposto il precedente e il successivo a null
+        Node prev = null;
+        // imposto il nodo correntea p
+        Node current = p;
+        Node next = null;
+        while (current != null) {
+            // il successivo diventa l'effettivo nodo successivo al corrente
+            next = current.getNext();
+            // l'effettivo successivo al nodo diventa il precedente
+            current.setNext(prev);
+            // il precedente diventa il nodo corrente
+            prev = current;
+            // il corrente diventa il successivo
+            current = next;
+        }
+        // ritorno il precedente perchè il corrente sarebbe null
+        return prev;
+    }
+
+    public static Node zipSum(Node p, Node q) {
+        if (p.getNext() == null) {
+            return new Node(p.getElem() + q.getElem(), null);
+        } else {
+            return new Node(p.getElem() + q.getElem(), zipSum(p.getNext(), q.getNext()));
+        }
+    }
 }// class
