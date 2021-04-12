@@ -35,11 +35,6 @@ public class PilaDinamica {
         return tmp;
     }
 
-    public Node top(){
-        assert !vuota() : "non si pu' richiamare il metodo top() se la pila e' vuota. ";
-        return top;
-    }
-
     public int[] toArray() {
         assert !vuota() : "non si puo' chiamare il metodo toArray() se la pila e' vuota. ";
         int length = this.size();
