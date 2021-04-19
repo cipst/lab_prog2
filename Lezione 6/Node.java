@@ -1,12 +1,12 @@
 // Nodo per realizzare liste concatenate.
-public class Node <T> {
+public class Node<T> {
     // Elemento intero contenuto in questo nodo.
     private T elem;
     // Nodo successore, o null se e' l'ultimo nodo della lista concatenata.
-    private Node <T> next;
+    private Node<T> next;
 
     // Crea un nuovo nodo con valore @elem e successore @next.
-    public Node(T elem, Node <T> next) {
+    public Node(T elem, Node<T> next) {
         this.elem = elem;
         this.next = next;
     }
@@ -21,13 +21,14 @@ public class Node <T> {
         this.elem = elem;
     }
 
-    // Ritorna il riferimento al nodo successore, oppure null se non c'e' un successore.
-    public Node <T> getNext() {
+    // Ritorna il riferimento al nodo successore, oppure null se non c'e' un
+    // successore.
+    public Node<T> getNext() {
         return this.next;
     }
 
     // Cambia il riferimento al nodo successore con @next.
-    public void setNext(Node <T> next) {
+    public void setNext(Node<T> next) {
         this.next = next;
     }
 }

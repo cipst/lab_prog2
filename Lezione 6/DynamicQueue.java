@@ -1,14 +1,14 @@
 // coda di dimensione dinamica, implementata come lista di Nodi
-public class DynamicQueue <T>{
+public class DynamicQueue<T> {
     // riferimento al primo nodo della lista, o null
-    private Node <T> first;
+    private Node<T> first;
     // riferimento all'ultimo nodo della lista, o null
-    private Node <T> last;
+    private Node<T> last;
 
-    // INVARIANTE: 
+    // INVARIANTE:
     // vale: first==last==null,
-    // oppure: first.getNext(). ... .getNext() == last 
-    //         && last.getNext() == null              
+    // oppure: first.getNext(). ... .getNext() == last
+    // && last.getNext() == null
 
     // costruttore: crea una coda vuota
     public DynamicQueue() {
@@ -17,9 +17,9 @@ public class DynamicQueue <T>{
 
     // scrivi una rappresentazione della coda su terminale
     public void scriviOutput() {
-        Node <T> node = first;
+        Node<T> node = first;
         while (node != null) {
-            System.out.print(node.getElem() + " "); 
+            System.out.print(node.getElem() + " ");
             node = node.getNext(); // successore
         }
         System.out.println();
@@ -28,14 +28,14 @@ public class DynamicQueue <T>{
     // inserisci un nuovo elemento @x in fondo alla coda
     public void enqueue(T x) {
         // crea un nuvo nodo da inserire in fondo
-        Node <T> node = new Node <T>(x, null);
+        Node<T> node = new Node<T>(x, null);
         if (empty()) // coda vuota
             first = last = node;
         else { // almeno un elemento
             last.setNext(node); // last -> node -> null
             last = node;
         }
-        assert first!=null && last!=null && last.getNext()==null;
+        assert first != null && last != null && last.getNext() == null;
     }
 
     // rimuovi e ritorna l'elemento in testa alla coda
@@ -47,8 +47,7 @@ public class DynamicQueue <T>{
         if (first == null)
             last = null;
 
-        assert ((first==null && last==null) || 
-                (first!=null && last!=null && last.getNext()==null));
+        assert ((first == null && last == null) || (first != null && last != null && last.getNext() == null));
         return x;
     }
 
@@ -66,16 +65,16 @@ public class DynamicQueue <T>{
     // ritorna la dimensione della coda
     public int size() {
         int n = 0;
-        for (Node <T> p = first; p != null; p = p.getNext())
+        for (Node<T> p = first; p != null; p = p.getNext())
             n++;
         return n;
     }
 
     // ritorna true se @x e' contenuto nella coda, false altrimenti
     public boolean contains(T x) {
-        for (Node <T> p = first; p != null; p = p.getNext())
-            if (p.getElem().equals(x)) 
-                return true; 
+        for (Node<T> p = first; p != null; p = p.getNext())
+            if (p.getElem().equals(x))
+                return true;
         return false;
     }
 
