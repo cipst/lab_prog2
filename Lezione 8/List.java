@@ -19,6 +19,21 @@ public abstract class List {
     // Ritorna una nuova lista opportunamente modificata.
     public abstract List insert(int x);
 
-    // Aggiungi alla lista tutti gli elementi di @l, e ritorna la nuova lista creata.
+    // Aggiungi alla lista tutti gli elementi di @l, e ritorna la nuova lista
+    // creata.
     public abstract List append(List l);
+
+    // NUOVI METODI
+    public abstract int sum();
+
+    public abstract int get(int i);
+
+    public abstract List succ();
+
+    public abstract List filter_le(int x);
+
+    public abstract List filter_gt(int x);
+
+    public abstract List intersect(List l);
+
 }
