@@ -38,58 +38,73 @@
  *
  */
 
-class Node<T>{
+class Node<T> {
     private T elem;
     private Node<T> next;
 
-    public Node(T elem, Node<T> next){
-        this.elem=elem;
-        this.next=next;
+    public Node(T elem, Node<T> next) {
+        this.elem = elem;
+        this.next = next;
     }
 
-    public T getElem(){
+    public T getElem() {
         return elem;
     }
 
-    public Node<T> getNext(){
+    public Node<T> getNext() {
         return next;
     }
 
-    public void setElem(T elem){
-        this.elem=elem;
+    public void setElem(T elem) {
+        this.elem = elem;
     }
-    public void setNext(Node<T> next){
-        this.next=next;
+
+    public void setNext(Node<T> next) {
+        this.next = next;
     }
 }
 
 class List<T> {
     private Node<T> first;
 
-    public List()
-    { first = null; }
+    public List() {
+        first = null;
+    }
 
-    public void insertFirst(T elem)
-    { first = new Node<>(elem, first); }
+    public void insertFirst(T elem) {
+        first = new Node<>(elem, first);
+    }
 
     @Override
     public String toString() {
         String s = "";
         for (Node<T> p = first; p != null; p = p.getNext()) {
-            if (p != first) s += ", ";
+            if (p != first)
+                s += ", ";
             s += p.getElem();
         }
         return s;
     }
 
-
     public void delete(T x) {
-        /////////////////////////
-        //    DA COMPLETARE    //
-        /////////////////////////
+        if (first != null) {
+            Node<T> p = first;
+            Node<T> q = first.getNext();
+            while (q != null) {
+                if (q.getElem().equals(x)) {
+                    p.setNext(q.getNext());
+                } else {
+                    p = p.getNext();
+                }
+                q = q.getNext();
+            }
+
+            if (first.getElem().equals(x)) {
+                first = first.getNext();
+            }
+        }
     }
 }
-
 
 public class Main0 {
     public static void main(String[] args) {
@@ -97,10 +112,10 @@ public class Main0 {
         test(crea(1, 2), "1, 2");
         test(crea(8, 8), "");
         test(crea(2, 2, 8, 8), "2, 2");
-        test(crea(2, 8, 2, 0), "2, 2, 0");
-        test2(crea("pippo", "pluto","pippo"), "pluto");
-        test2(crea("topolino", "pippo","clarabella"), "topolino, clarabella");
-        
+        test(crea(2, 8, 8, 8, 2, 8, 8, 0, 8, 2, 2), "2, 2, 0, 2, 2");
+        test2(crea("pippo", "pluto", "pippo"), "pluto");
+        test2(crea("topolino", "pippo", "clarabella"), "topolino, clarabella");
+
     }
 
     private static void test(List<Integer> l, String atteso) {
@@ -111,7 +126,7 @@ public class Main0 {
         System.out.println(l.toString().equals(atteso) ? "=== OK" : "=== ERRORE");
         System.out.println();
     }
-    
+
     private static void test2(List<String> l, String atteso) {
         System.out.println("lista    : " + l);
         l.delete("pippo");
@@ -122,7 +137,7 @@ public class Main0 {
     }
 
     @SafeVarargs
-    private static <T> List<T> crea(T...v) {
+    private static <T> List<T> crea(T... v) {
         List<T> l = new List<>();
         for (int i = v.length - 1; i >= 0; i--)
             l.insertFirst(v[i]);
