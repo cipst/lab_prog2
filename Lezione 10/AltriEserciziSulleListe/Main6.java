@@ -26,13 +26,13 @@
  *
  */
 
-class Node<T>{
+class Node<T> {
     public T elem;
     public Node<T> next;
 
     public Node(T elem, Node<T> next) {
-        this.elem=elem;
-        this.next=next;
+        this.elem = elem;
+        this.next = next;
     }
 }
 
@@ -42,13 +42,15 @@ class List<T extends Comparable<T>> {
     public List() {
         first = null;
     }
+
     public void insertFirst(T elem) {
         first = new Node<>(elem, first);
     }
+
     public String toString() {
         String s = "";
         for (Node<T> p = first; p != null; p = p.next) {
-            if (p != first) 
+            if (p != first)
                 s += ", ";
             s += p.elem;
         }
@@ -56,19 +58,40 @@ class List<T extends Comparable<T>> {
     }
 
     public void moveMaxToEnd() {
-        /////////////////////////
-        //    DA COMPLETARE    //
-        /////////////////////////
+        // lista vuota -> non fare niente
+        if (first != null) {
+
+            Node<T> max = first;
+            Node<T> p = first.next;
+            if (p != null) {
+
+                while (p.next != null) {
+                    if (max.elem.compareTo(p.elem) == -1) {
+                        max = p;
+                    } else {
+
+                    }
+                    p = p.next;
+                }
+
+                if (max.elem.compareTo(p.elem) == -1) {
+                    max = p;
+                }
+
+                p.next = max;
+                max.next = null;
+            }
+        }
     }
 }
-
 
 public class Main6 {
     public static void main(String[] args) {
         test(crea(), "");
         test(crea(1), "1");
-        test(crea(2,1), "1, 2");
-        test(crea(2, 3, 1, 3, 2), "2, 1, 3, 2, 3");        
+        test(crea(2, 1), "1, 2");
+        test(crea(2, 3, 1, 3, 2), "2, 1, 3, 2, 3");
+        test(crea(2, 3, 1, 1, 4, 2), "2, 3, 1, 1, 2, 4");
     }
 
     private static void test(List<Integer> l, String atteso) {
@@ -81,7 +104,7 @@ public class Main6 {
     }
 
     @SafeVarargs
-    private static <T extends Comparable<T>> List<T> crea(T...v) {
+    private static <T extends Comparable<T>> List<T> crea(T... v) {
         List<T> l = new List<>();
         for (int i = v.length - 1; i >= 0; i--)
             l.insertFirst(v[i]);
