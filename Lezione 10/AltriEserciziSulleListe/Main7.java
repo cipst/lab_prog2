@@ -33,17 +33,17 @@
  *
  */
 
-class Node<T>{
+class Node<T> {
     public T elem;
     public Node<T> next;
 
-    public Node(T elem, Node<T> next){
-        this.elem=elem;
-        this.next=next;
+    public Node(T elem, Node<T> next) {
+        this.elem = elem;
+        this.next = next;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         String s = "[" + elem;
         for (Node<T> p = next; p != null; p = p.next) {
             s += ", ";
@@ -55,19 +55,34 @@ class Node<T>{
 }
 
 public class Main7 {
-    public static <T> void truncate(Node<Node<T>> ll, int x){
-        /////////////////////////
-        //    DA COMPLETARE    //
-        /////////////////////////
+    public static <T> void truncate(Node<Node<T>> ll, int x) {
+        if (ll != null) {
+            for (Node<Node<T>> p = ll; p != null; p = p.next) {
+                int j = x;
+                if (x == 0) {
+                    p.elem = null;
+                } else {
+                    Node<T> k = p.elem;
+                    while (k != null && j != 1) {
+                        --j;
+                        k = k.next;
+                    }
+                    if (k != null)
+                        k.next = null;
+                }
+            }
+        }
     }
 
     public static void main(String[] args) {
         test(crea(), 2, "null");
         test(crea(crea()), 2, "[null]");
-        test(crea(crea(1,2),crea(2,3,5)), 2, "[[1, 2], [2, 3]]");
+        test(crea(crea(1, 2), crea(2, 3, 5)), 2, "[[1, 2], [2, 3]]");
+        test(crea(crea(1, 2, 3, 4), crea(2, 3, 5)), 2, "[[1, 2], [2, 3]]");
         test(crea(), 0, "null");
         test(crea(crea()), 0, "[null]");
-        test(crea(crea(1,2),crea(2,3,5)), 0, "[null, null]");   
+        test(crea(crea(1, 2), crea(2, 3, 5)), 0, "[null, null]");
+        test(crea(crea(1, 2, 3), crea(2, 3, 5), crea(5, 3, 8)), 0, "[null, null, null]");
     }
 
     private static <T> void test(Node<Node<T>> l, int x, String atteso) {
@@ -75,7 +90,7 @@ public class Main7 {
         truncate(l, x);
         System.out.println("ottenuto : " + l);
         System.out.println("atteso   : " + atteso);
-        if (l!=null)
+        if (l != null)
             System.out.println(l.toString().equals(atteso) ? "=== OK" : "=== ERRORE");
         else
             System.out.println(atteso.equals("null") ? "=== OK" : "=== ERRORE");
@@ -83,10 +98,10 @@ public class Main7 {
     }
 
     @SafeVarargs
-    private static <T> Node<T> crea(T...v) {
+    private static <T> Node<T> crea(T... v) {
         Node<T> l = null;
         for (int i = v.length - 1; i >= 0; i--)
-            l=new Node<>(v[i],l);
+            l = new Node<>(v[i], l);
         return l;
     }
 }
