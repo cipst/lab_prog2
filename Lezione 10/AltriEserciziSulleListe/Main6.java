@@ -58,26 +58,46 @@ class List<T extends Comparable<T>> {
     }
 
     public void moveMaxToEnd() {
-        // lista vuota -> non fare niente
+        // devo apportare modifiche solo se ho una lista NON nulla
         if (first != null) {
 
+            // prevMax contiene il nodo prima del massimo
+            Node<T> prevMax = null;
+
+            // max contiene il nodo massimo (supopongo che il max sia il primo nodo)
             Node<T> max = first;
-            Node<T> p = first.next;
-            if (p != null) {
 
+            // parto dal first
+            Node<T> p = first;
+
+            // se first ha un next allora passo a controllare ciò che viene dopo;
+            // altrimenti la lista ha un solo elemento: OK
+            if (p.next != null) {
                 while (p.next != null) {
-                    if (max.elem.compareTo(p.elem) == -1) {
-                        max = p;
-                    } else {
 
+                    // se max.elem è più piccolo di p.next.elem ==> p.next diventa il nodo massimo
+                    // e p diventa il precedente di max
+                    if (max.elem.compareTo(p.next.elem) == -1) {
+                        max = p.next;
+                        prevMax = p;
                     }
+
                     p = p.next;
                 }
 
-                if (max.elem.compareTo(p.elem) == -1) {
-                    max = p;
-                }
+                // se prevMax è null vuol dire che il massimo è in prima posizione
+                // --> sposto il massimo al nodo successivo ('cancellando' il massimo)
+                // altrimenti il nodo massimo è all'interno della lista
+                // --> il next del precedente del massimo diventa il next del massimo
+                // ('cancellando' il massimo)
+                if (prevMax == null)
+                    first = first.next;
+                else
+                    prevMax.next = max.next;
 
+                // p rappresenta l'ultimo nodo della lista
+                // quindi faccio puntare il next dell'ultimo nodo al massimo
+                // e il next del massimo a null
                 p.next = max;
                 max.next = null;
             }
@@ -92,6 +112,8 @@ public class Main6 {
         test(crea(2, 1), "1, 2");
         test(crea(2, 3, 1, 3, 2), "2, 1, 3, 2, 3");
         test(crea(2, 3, 1, 1, 4, 2), "2, 3, 1, 1, 2, 4");
+        test(crea(5, 3, 1, 1, 4, 2), "3, 1, 1, 4, 2, 5");
+        test(crea(5, 3, 1, 6, 4, 2), "5, 3, 1, 4, 2, 6");
     }
 
     private static void test(List<Integer> l, String atteso) {
