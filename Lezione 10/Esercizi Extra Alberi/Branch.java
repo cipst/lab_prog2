@@ -99,24 +99,25 @@ public class Branch extends Tree {
             if (this.elem == x)
                 return true;
             else
-                return this.left.contains(x, n - 1) || this.right.contains(x, n - 1);
+                return (x < elem) ? this.left.contains(x, n - 1) : this.right.contains(x, n - 1);
         else
             return false;
     }
 
     public boolean balanced() {
-        if (Math.abs(this.left.depth() - this.right.depth()) <= 1)
-            return this.left.balanced() && this.right.balanced();
-        else
-            return false;
+        return Math.abs(this.left.depth() - this.right.depth()) <= 1 && this.left.balanced() && this.right.balanced();
     }
 
     public Tree filter_le(int x) {
         if (this.elem == x) {
-            return new Branch(this.elem, left.filter_le(x), new Leaf());
+			// se elem == x --> a sx avrò per forza elementi < x (perchè sono anche < di elem)
+			// risparmio ricorsioni rispetto a fare: left.filter_le(x)
+            return new Branch(this.elem, left, new Leaf());
         }
         if (this.elem < x) {
-            return new Branch(this.elem, left.filter_le(x), right.filter_le(x));
+			// se elem < x --> a sx avrò per forza elementi < x (perchè sono anche < di elem)
+			// risparimio ricorsioni rispetto a fare: left.filter_le(x)
+            return new Branch(this.elem, left, right.filter_le(x));
         } else {
             return left.filter_le(x);
         }
